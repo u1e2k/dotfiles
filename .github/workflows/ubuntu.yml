@@ -23,9 +23,9 @@ jobs:
 
     - name: step2
       run: |
-        cd 
-        pwd
-        if [-f ".bashrc"]; then
+        cd #HOME に移動
+        pwd 
+        if [test -L .bashrc]; then
           echo "::notice::bashrcおるで"
         else
           echo "::error::bashrcおらんで"
