@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dotfilesリポジトリのパス（このスクリプトがあるディレクトリを想定）
-DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="./"
 
 # 管理したいdotfileのリスト
 declare -a dotfiles=(
