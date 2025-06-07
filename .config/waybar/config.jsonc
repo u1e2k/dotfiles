@@ -198,7 +198,7 @@
 	"escape": true
     },
     "custom/runcat": {
-        "exec": "~/.config/waybar/modules/runcat-text/main.py",
+        "exec": "~/.config/waybar/runcat-text/main.py",
         "return-type": "json"
     }
 }
