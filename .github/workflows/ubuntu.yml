@@ -19,9 +19,15 @@ jobs:
 
     - name: step
       run: |
-        pwd
+        pwd 
 
     - name: step2
       run: |
         cd 
         pwd
+        if [-f ".bashrc"]; then
+          echo "::notice::bashrcおるで"
+        else
+          echo "::error::bashrcおらんで"
+          exit 1
+        fi
