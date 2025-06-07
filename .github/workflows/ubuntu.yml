@@ -15,7 +15,7 @@ jobs:
 
     # Error Check
     - name: Run install.sh
-      run: ${GITHUB_WORKSPACE}/bin/install.sh
+      run: ${GITHUB_WORKSPACE}/install.sh
 
     - name: Load .bash_profile
       run: |
