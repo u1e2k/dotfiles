@@ -17,14 +17,11 @@ jobs:
     - name: Run install.sh
       run: ${GITHUB_WORKSPACE}/install.sh
 
-    - name: Check if .bashrc exists in repository
+    - name: step
       run: |
-        # GitHub Actions のワークスペース内のパスを確認
-        HOME_PATH="~/.bashrc"
+        pwd
 
-        if [ -f "$HOME_PATH" ]; then
-          echo "::notice file=$HOME_PATH::.bashrc exists in the repository."
-        else
-          echo "::error file=$HOME_PATH::.bashrc does NOT exist in the repository!"
-          exit 1 # ファイルがない場合はステップを失敗させる
-        fi
+    - name: step2
+      run: |
+        cd 
+        pwd
