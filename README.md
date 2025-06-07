@@ -46,6 +46,9 @@ nvim init.lua
 kitty + list-fonts --psnames
 ```
 
+`jq eww hyprshot pyenv`
+
+
 waybarの再起動の自動化とか
 hyprshotとか
 hyprhookのビルドし直しとかやった
