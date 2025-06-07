@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# dotfilesリポジトリのパス（このスクリプトがあるディレクトリを想定）
-DOTFILES_DIR="./"
-
 # 管理したいdotfileのリスト
 declare -a dotfiles=(
     ".vimrc"
@@ -15,13 +12,7 @@ echo "--- Dotfiles Setup Started ---"
 
 for file in "${dotfiles[@]}"; do
     local_file="$HOME/$file"       # ホームディレクトリでのパス
-    source_file="$DOTFILES_DIR/$file" # dotfilesリポジトリ内のパス
-
-    # dotfilesリポジトリに実体が存在しない場合はスキップ
-    if [ ! -f "$source_file" ]; then
-        echo "Warning: Source file '$source_file' not found. Skipping '$file'."
-        continue
-    fi
+    source_file="$file" # dotfilesリポジトリ内のパス
 
     # シンボリックリンクを張る
     echo "Creating symlink: '$source_file' -> '$local_file'"
