@@ -47,7 +47,7 @@ kitty + list-fonts --psnames
 ```
 
 `jq eww hyprshot pyenv tmux`
-
+memo `ln -sfbv ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf`
 
 
 waybarの再起動の自動化とか
