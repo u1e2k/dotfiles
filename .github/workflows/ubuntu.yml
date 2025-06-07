@@ -20,12 +20,13 @@ jobs:
     - name: step
       run: |
         pwd 
+        ls -al
 
     - name: step2
       run: |
         cd #HOME に移動
         pwd 
-        if [ -L .bashrc]; then
+        if [ -L $HOME/.bashrc]; then
           echo "::notice::bashrcおるで"
         else
           echo "::error::bashrcおらんで"
