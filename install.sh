@@ -1,6 +1,6 @@
 #!/bin/bash -xeu
 
-CURRENT_DIR=$(pwd)
+CURRENT_DIR=`pwd`
 
 # 管理したいdotfileのリスト
 declare -a dotfiles=(

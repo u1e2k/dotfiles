@@ -26,7 +26,7 @@ jobs:
       run: |
         cd #HOME に移動
         pwd 
-        if [ -L $HOME/.bashrc]; then
+        if [ -L $HOME/.bashrc ]; then
           echo "::notice::bashrcおるで"
         else
           echo "::error::bashrcおらんで"
