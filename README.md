@@ -46,7 +46,8 @@ nvim init.lua
 kitty + list-fonts --psnames
 ```
 
-`jq eww hyprshot pyenv`
+`jq eww hyprshot pyenv tmux`
+
 
 
 waybarの再起動の自動化とか
