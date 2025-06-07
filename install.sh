@@ -2,7 +2,7 @@
 
 CURRENT_DIR=`pwd`
 
-# 管理したいdotfileのリスト
+# 管理したいdotfileのリスト *HOME直下
 declare -a dotfiles=(
     ".vimrc"
     # 他のファイルもここに追加していく
