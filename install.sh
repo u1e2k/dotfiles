@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -xeu
+
+CURRENT_DIR=$(cd "$(dirname "$0")"; pwd)
 
 # 管理したいdotfileのリスト
 declare -a dotfiles=(
@@ -12,7 +14,7 @@ echo "--- Dotfiles Setup Started ---"
 
 for file in "${dotfiles[@]}"; do
     local_file="$HOME/$file"       # ホームディレクトリでのパス
-    source_file="$file" # dotfilesリポジトリ内のパス
+    source_file="$CURRENT_DIR/$file" # dotfilesリポジトリ内のパス
 
     # シンボリックリンクを張る
     echo "Creating symlink: '$source_file' -> '$local_file'"
