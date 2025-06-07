@@ -7,7 +7,7 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 declare -a dotfiles=(
     ".vimrc"
     # 他のファイルもここに追加していく
-    # ".vimrc"
+    ".bashrc"
     # ".gitconfig"
 )
 
