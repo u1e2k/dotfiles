@@ -1,0 +1,75 @@
+name: Dotfiles Test
+
+on:
+  push:
+    branches:
+      - main # mainブランチへのpush時に実行
+  pull_request:
+    branches:
+      - main # mainブランチへのプルリクエスト時に実行
+
+jobs:
+  test_dotfiles:
+    runs-on: ubuntu-latest # テストを実行するOS環境 (Ubuntuが一般的)
+    strategy:
+      matrix:
+        # 複数のシェルでテストしたい場合はここにシェルを追加
+        shell: [bash, zsh] 
+
+    steps:
+      - name: Checkout dotfiles repository
+        uses: actions/checkout@v4 # リポジトリをクローン
+
+      - name: Setup Shell (${{ matrix.shell }})
+        run: |
+          # デフォルトシェルをテスト対象のシェルに変更
+          # zshの場合、インストールが必要な場合がある
+          if [ "${{ matrix.shell }}" = "zsh" ]; then
+            sudo apt-get update && sudo apt-get install -y zsh
+            sudo chsh -s /usr/bin/zsh runner # runnerユーザーのデフォルトシェルを変更
+          fi
+        shell: ${{ matrix.shell }} # ここでシェルを指定
+
+      - name: Run dotfiles installation script
+        run: |
+          # 実際のリポジトリの構造とスクリプト名に合わせて調整
+          # 例: ./install.sh または ./setup.sh
+          # スクリプトが実行可能であることを確認
+          chmod +x ./install.sh
+          ./install.sh
+        shell: ${{ matrix.shell }} # スクリプト実行時も同じシェルを使用
+
+      - name: Verify .bashrc (or .zshrc) symlink
+        run: |
+          # ~/.bashrc が ~/dotfiles/.bashrc へのシンボリックリンクか確認
+          if [ "${{ matrix.shell }}" = "bash" ]; then
+            # シンボリックリンクか確認
+            ls -l ~/.bashrc | grep -q "${{ github.workspace }}/.bashrc"
+            # .bashrc の中身が期待通りか一部確認 (例: 特定のエイリアスが存在するか)
+            grep "alias ll='ls -alF'" ~/.bashrc
+          elif [ "${{ matrix.shell }}" = "zsh" ]; then
+            # .zshrc のシンボリックリンクと中身の確認
+            ls -l ~/.zshrc | grep -q "${{ github.workspace }}/.zshrc"
+            grep "alias ll='ls -alF'" ~/.zshrc # もしzshrcにも同じエイリアスがあるなら
+          fi
+        shell: ${{ matrix.shell }}
+
+      - name: Test Git config (example)
+        run: |
+          # .gitconfig が正しくリンクされ、内容が読み込まれているか確認
+          # ~/.gitconfig がシンボリックリンクされている前提
+          git config --global user.name # gitconfigにuser.nameが設定されていれば成功
+          git config --global core.editor # gitconfigにcore.editorが設定されていれば成功
+        shell: ${{ matrix.shell }} # このステップも対象シェルで実行
+
+      # 必要に応じて、さらに多くのテストステップを追加
+      # 例:
+      # - name: Test Vim/Neovim configuration
+      #   run: |
+      #     # vim-plug や dein.vim のインストール、基本的なプラグインの動作確認など
+      #     sudo apt-get install -y neovim
+      #     nvim --version # nvimがインストールされているか確認
+      #     nvim -es -c 'PlugInstall' -c 'qa!' # プラグインインストール（vim-plugの場合）
+      #     # 特定のVimコマンドが動作するかテスト
+      #     nvim -es -c 'echo has("clipboard")' -c 'qa!' | grep 1 # clipboardが有効か
+      #   shell: ${{ matrix.shell }}
