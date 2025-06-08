@@ -58,5 +58,7 @@ hyprhookのビルドし直しとかやった
 
 ```bash
 u1e2k@localhost:~/dotfiles$ ln -sfbv /home/u1e2k/dotfiles/.bashrc /home/u1e2k/.bashrc
+# -b オプションがついてればリンク先に実体ファイルがあったときに"~"を後ろにつけてバックアップしてくれる。
+# 十分かな。
 '/home/u1e2k/.bashrc~' ~ '/home/u1e2k/.bashrc' -> '/home/u1e2k/dotfiles/.bashrc'
 ```
