@@ -55,3 +55,8 @@ hyprshotとか
 hyprhookのビルドし直しとかやった
 
 検証も含めて自動で行ってくれるようにしたい
+
+```bash
+u1e2k@localhost:~/dotfiles$ ln -sfbv /home/u1e2k/dotfiles/.bashrc /home/u1e2k/.bashrc
+'/home/u1e2k/.bashrc~' ~ '/home/u1e2k/.bashrc' -> '/home/u1e2k/dotfiles/.bashrc'
+```
