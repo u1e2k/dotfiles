@@ -18,15 +18,16 @@ jobs:
         echo "現在地:$(pwd)"
         echo "ホーム: $HOME"
 
-    - name: Run install.sh
+    - name: Run dotfiles install script
       run: ${GITHUB_WORKSPACE}/setup.sh
 
-    - name: step
+    - name: file check
       run: |
+        cd $HOME
         echo "現在地：$(pwd)"
-        ls -al
-        ls -al .bin
-        ls -al .config
+        ls -al $HOME
+        ls -al $HOME/.bin
+        ls -al $HOME/.config
         cd # HOME に移動
         pwd 
         if [ -L $HOME/.bashrc ]; then
