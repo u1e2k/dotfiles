@@ -26,7 +26,7 @@ jobs:
         cd $HOME
         echo "現在地：$(pwd)"
         ls -al $HOME
-        ls -al $HOME/.bin
+        #ls -al $HOME/.bin
         ls -al $HOME/.config
         cd # HOME に移動
         pwd 
