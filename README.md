@@ -46,9 +46,22 @@ nvim init.lua
 kitty + list-fonts --psnames
 ```
 
-`jq eww hyprshot pyenv tmux`
-memo `ln -sfbv ~/dotfiles/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf`
-
+# sudo zypper in
+```
+btop
+cowsay
+eww
+fortune
+hyprshot
+jq
+mpv
+neovim
+pyenv
+tmux
+waybar
+wofi
+zen-browser
+```
 
 waybarの再起動の自動化とか
 hyprshotとか
@@ -56,12 +69,5 @@ hyprhookのビルドし直しとかやった
 
 検証も含めて自動で行ってくれるようにしたい
 
-```bash
-u1e2k@localhost:~/dotfiles$ ln -sfbv /home/u1e2k/dotfiles/.bashrc /home/u1e2k/.bashrc
-# -b オプションがついてればリンク先に実体ファイルがあったときに"~"を後ろにつけてバックアップしてくれる。
-# 十分かな。
-'/home/u1e2k/.bashrc~' ~ '/home/u1e2k/.bashrc' -> '/home/u1e2k/dotfiles/.bashrc'
-```
-
 #
-fortune | cowsay -r
+`fortune | cowsay -r`
