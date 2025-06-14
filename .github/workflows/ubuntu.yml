@@ -13,17 +13,21 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # Error Check
+    - name: info
+      run: |
+        echo "現在地:$(pwd)"
+        echo "ホーム: $HOME"
+
     - name: Run install.sh
       run: ${GITHUB_WORKSPACE}/install.sh
 
     - name: step
       run: |
-        pwd
+        echo "現在地：$(pwd)"
         ls -al
         ls -al .bin
         ls -al .config
-        cd #HOME に移動
+        cd # HOME に移動
         pwd 
         if [ -L $HOME/.bashrc ]; then
           echo "::notice::bashrcおるで"
