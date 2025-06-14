@@ -19,11 +19,10 @@ jobs:
 
     - name: step
       run: |
-        pwd 
+        pwd
         ls -al
-
-    - name: step2
-      run: |
+        ls -al .bin
+        ls -al .config
         cd #HOME に移動
         pwd 
         if [ -L $HOME/.bashrc ]; then
