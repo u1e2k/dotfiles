@@ -19,7 +19,7 @@ jobs:
         echo "ホーム: $HOME"
 
     - name: Run install.sh
-      run: ${GITHUB_WORKSPACE}/install.sh
+      run: ${GITHUB_WORKSPACE}/setup.sh
 
     - name: step
       run: |
