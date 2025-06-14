@@ -29,3 +29,17 @@ echo "--- Dotfiles Setup Complete! ---"
 
 # シェルを再読み込みするなどの後処理があれば追加
 # source ~/.bashrc
+
+folder_path="$HOME/.config" # ~/.configフォルダが存在しているかを確認する
+
+if [ ! -d "$folder_path" ]; then
+  echo "フォルダ '$folder_path' は存在しません。作成します..."
+  mkdir -p "$folder_path"
+  if [ $? -eq 0 ]; then
+    echo "フォルダ '$folder_path' が正常に作成されました。"
+  else
+    echo "フォルダ '$folder_path' の作成に失敗しました。"
+  fi
+else
+  echo "フォルダ '$folder_path' は既に存在します。"
+fi

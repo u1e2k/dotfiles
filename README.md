@@ -62,3 +62,6 @@ u1e2k@localhost:~/dotfiles$ ln -sfbv /home/u1e2k/dotfiles/.bashrc /home/u1e2k/.b
 # 十分かな。
 '/home/u1e2k/.bashrc~' ~ '/home/u1e2k/.bashrc' -> '/home/u1e2k/dotfiles/.bashrc'
 ```
+
+#
+fortune | cowsay -r
