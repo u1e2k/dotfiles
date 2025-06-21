@@ -1,0 +1,243 @@
+    1  sudo zypper dup
+    2  sudo zypper up
+    3  sudo zypper dup
+    4  ls
+    5  LANG=C xdg-user-dirs-gtk-update
+    6  sudo zypper in xdg-user-dirs-gtk
+    7  LANG=C xdg-user-dirs-gtk-update
+    8  ls
+    9  rm デスクトップ/
+   10  rmdir デスクトップ/
+   11  rm -rf デスクトップ/
+   12  ls
+   13  git
+   14  sudo zypper in git
+   15  ls
+   16  gh
+   17  sudo zypper install gh
+   18  gh
+   19  gh auth
+   20  gh auth login
+   21  gh repo clone u1e2k/dotfiles
+   22  ls
+   23  cd dotfiles/
+   24  ls
+   25  ./setup.sh 
+   26  ls
+   27  cd
+   28  ls
+   29  ls -al
+   30  cd .config/
+   31  ls
+   32  ls -al
+   33  btop
+   34  sudo zypper in btop
+   35  cd
+   36  btop
+   37  source .bashrc
+   38  ls
+   39  eza
+   40  sudo zypper in eza
+   41  ls
+   42  ls -al
+   43  vi .bashrc
+   44  sudo zypper in hyprland
+   45  sudo zypper in kitty
+   46  exit
+   47  ls
+   48  cd .config/
+   49  ls
+   50  ls kitty
+   51  ls
+   52  lazygit
+   53  sudo zypper in lazygit 
+   54  cd
+   55  cd dotfiles/
+   56  lazygit 
+   57  cd
+   58  cd .config/
+   59  ls -al
+   60  cd kitty
+   61  ls
+   62  vi kitty.conf 
+   63  cd
+   64  cd .config/
+   65  ls
+   66  cd hypr
+   67  ls
+   68  vi hyprland.conf 
+   69  ls
+   70  cd
+   71  ls
+   72  fc-list
+   73  mkdir .fonts
+   74  sudo zypper in wofi
+   75  sudo zypper in waybar
+   76  fc-list | grep "Hack"
+   77  ls
+   78  bat
+   79  sudo zypper install bat
+   80  bat
+   81  ls
+   82  sudo zypper in wlogout
+   83  wlogout
+   84  sudo zypper search hypr
+   85  sudo zypper in hyprland-qtutils 
+   86  sudo zypper search hyprland
+   87  sudo zypper in xdg-desktop-portal-hyprland 
+   88  sudo zypper search wayland
+   89  ls
+   90  cd .config/
+   91  ls
+   92  cd waybar
+   93  ls
+   94  cd /etc/xdg/waybar/
+   95  ls
+   96  mv config.jsonc config.jsonc.old
+   97  sudo mv config.jsonc config.jsonc.old
+   98  waybar
+   99  ls
+  100  cd /
+  101  ls
+  102  bat /tmp/python-build.20250621214418.460931
+  103  ls /tmp/python-build.20250621214418.460931
+  104  bat /tmp/python-build.20250621214418.460931/Python-3.11.3/
+  105  cd
+  106  ls
+  107  ls /tmp/
+  108  hyprctl systeminfo 
+  109  vi .config/hypr/hyprland.conf 
+  110  vi .config/waybar/config.jsonc 
+  111  sudo zypper in swaync
+  112  waybar
+  113  cd .config/waybar
+  114  ls
+  115  vi config.jsonc 
+  116  cd /etc/xdg/waybar/
+  117  vi config.jsonc.old 
+  118  cd
+  119  ls /etc/
+  120  whereis waybar
+  121  man waybar
+  122  sudo zypper in jq pango cairo libinput
+  123  sudo zypper in fonts-font-qwesome
+  124  sudo zypper in fonts-font-awesome
+  125  cd
+  126  sudo zypper in fcitx
+  127  sudo zypper in pyenv
+  128  pyenv install 3.11.3
+  129  sudo zypper in buildkit
+  130  sudo zypper in make
+  131  pyenv install 3.11.3
+  132  pyenv global 3.11.3
+  133  waybar
+  134  hyprctl 
+  135  hyprctl reload 
+  136  cd .config/hypr/
+  137  vi hyprland.conf 
+  138  lazygit 
+  139  hyprctl reload 
+  140  waybar
+  141  cd .config/waybar
+  142  ls
+  143  cd runcat-text/
+  144  ls
+  145  ./main.py 
+  146  pwd
+  147  ls
+  148  cd ../
+  149  ls
+  150  cd runcat-text/
+  151  vi config.json
+  152  cd ../
+  153  ls
+  154  cd hypr
+  155  ls
+  156  cd ~/.bin
+  157  ls
+  158  ./restart_waybar_on_change.sh 
+  159  sudo zypper in inotifywait
+  160  sudo zypper in inotify-tools
+  161  ./restart_waybar_on_change.sh 
+  162  vi restart_waybar_on_change.sh 
+  163  cd .config/waybar/
+  164  vi config.jsonc 
+  165  waybar
+  166  whereis waybar
+  167  exit
+  168  btop
+  169  sudo zypper in lolcat cowsay zsh fortune zellij 
+  170  sudo zypper 
+  171  zellij
+  172  sudo zepper search lolcat
+  173  sudo zypper search lolcat
+  174  cd .config/waybar/runcat-text/
+  175  ls
+  176  cp runcat.ttf ~/.fonts/
+  177  fc-list
+  178  fc-list | grep "run"
+  179  sudo zypper in eew
+  180  sudo zypper in eww
+  181  cd dotfiles/
+  182  lazygit 
+  183  gh push
+  184  gh auth push
+  185  gh status
+  186  gh auth status
+  187  gh auth login -h github.com
+  188  git push
+  189  lazygit 
+  190  la
+  191  cd .config/
+  192  ls
+  193  cd waybar/
+  194  cd ../
+  195  ls hypr/
+  196  cd hypr/
+  197  cd plugins/
+  198  ls
+  199  cd ../
+  200  vi hyprland.conf 
+  201  ls ~/.config/hypr/plugins/
+  202  hyprctl reload 
+  203  l
+  204  vi hyprland.conf 
+  205  ls
+  206  cd scripts/
+  207  ls
+  208  vi which-key.sh 
+  209  eww
+  210  btop
+  211  flatpak install flathub app.zen_browser.zen
+  212  zen
+  213  whereis zen
+  214  zen-browser
+  215  flatpak run app.zen_browser.zen
+  216  ls
+  217  bto
+  218  btop
+  219  sudo zypper remove fcitx
+  220  sudo zypper fcitx5
+  221  sudo zypper in fcitx5
+  222  hyprctl reload 
+  223  zypper ar -cf https://download.opensuse.org/repositories/devel:/tools:/ide:/vscode/openSUSE_Tumbleweed devel_tools_ide_vscode
+  224  sudo !
+  225  history
+  226  sudo zypper ar -cf https://download.opensuse.org/repositories/devel:/tools:/ide:/vscode/openSUSE_Tumbleweed devel_tools_ide_vscode
+  227  sudo zypper in code
+  228  ls
+  229  bat
+  230  eza
+  231  eza -al
+  232  ea
+  233  el
+  234  hyprpaper
+  235  sudo zypper install hyprpaper 
+  236  dmenu
+  237  sudo zypper install dmenu
+  238  dmenu
+  239  ls
+  240  zsh
+  241  ls
+  242  ls -al
+  243  history > history.txt
