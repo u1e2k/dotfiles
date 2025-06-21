@@ -8,7 +8,7 @@
 
 2025/6 openSUSEでの流れ
 
-```
+```bash
 LANG=C xdg-user-dirs-gtk-update
 sudo zypper in hyprland
 sudo zypper in kitty

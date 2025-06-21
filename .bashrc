@@ -49,3 +49,15 @@ export PS1="\[\e[01;32m\]\u:\[\e[01;36m\]\W\[\e[01;31m\]\$(parse_git_branch)\[\e
 #   PS1_COLOR="\[\e[01;32m\]"; # 緑色 (成功) \
 # fi; \
 # export PS1="$PS1_COLOR\u:\[\e[01;36m\]\W\[\e[01;31m\]\$(parse_git_branch)\[\e[00m\]\$ "'
+
+####################
+#### エイリアス ####
+####################
+
+if type -P eza &>/dev/null; then
+	alias ls='eza'
+fi
+
+if type -P bat &>/dev/null; then
+    alias cat='bat'
+fi
