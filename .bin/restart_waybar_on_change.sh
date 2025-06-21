@@ -17,5 +17,5 @@ while true; do
   # 実行中のWaybarを終了させ、新しい設定で再起動します
   # config.jsonc を使用している場合は、Waybarの起動コマンドもそれに合わせて調整してください
   # 例: killall waybar && waybar -c "$CONFIG_FILE" &
-  killall waybar && waybar &
+  killall waybar && /usr/bin/waybar &
 done
