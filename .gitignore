@@ -3,4 +3,4 @@
 # バックアップファイルは除外
 kitty.conf.bak
 # 本当はwaybarのpluginも入れておきたいけど .so ファイルそのままリポジトリにぶち込むのはさすがに・・・
-hyprhook.so
+#hyprhook.so
