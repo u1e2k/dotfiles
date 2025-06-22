@@ -30,6 +30,7 @@ declare -a dotfiles_to_link=(
     ".vimrc"
     ".bashrc"
     ".bin"
+    ".zshrc"
     # ".gitconfig" # 例
 
     # .configディレクトリ直下のファイルとサブディレクトリ

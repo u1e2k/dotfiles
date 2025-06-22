@@ -61,3 +61,5 @@ fi
 if type -P bat &>/dev/null; then
     alias cat='bat'
 fi
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
