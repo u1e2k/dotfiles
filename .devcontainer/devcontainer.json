@@ -11,14 +11,13 @@
   },
   
   // コンテナ作成後に実行されるコマンド
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+//   "postCreateCommand": "bash .devcontainer/setup.sh",
   
   // VSCode拡張機能（Nix開発に便利）
   "customizations": {
     "vscode": {
       "extensions": [
         "jnoortheen.nix-ide",
-        "mkhl.direnv",
         "bbenoist.nix"
       ],
       "settings": {
