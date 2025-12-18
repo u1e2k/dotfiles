@@ -6,11 +6,30 @@
 
 ## セットアップ手順
 
-### 前提条件
+### 🚀 最も簡単な方法：GitHub Codespacesを使う
+
+**推奨**：Nixのインストールが不要で、ブラウザだけで環境をテストできます！
+
+1. このリポジトリのGitHubページを開く
+2. 緑色の **"Code"** ボタンをクリック
+3. **"Codespaces"** タブを選択
+4. **"Create codespace on main"** をクリック
+
+数分待つと、Nix環境が自動セットアップされたVSCodeがブラウザで開きます。  
+設定ファイルとCLIツール（kitty、tmux、nvimなど）が自動的に適用されます。
+
+> **注**: GUIツール（Hyprland、Waybarなど）はCodespacesでは動作しませんが、  
+> 設定ファイルのリンクやCLIツールのインストールは完全にテスト可能です。
+
+---
+
+### 🖥️ ローカルマシンでの環境構築
+
+#### 前提条件
 - Nixパッケージマネージャーがインストールされていること
 - Flakes機能が有効化されていること
 
-### 新しいマシンでの環境構築
+#### ローカルマシンでの環境構築
 
 1. **Nixのインストール（未インストールの場合）**
 ```bash
@@ -39,6 +58,10 @@ home-manager switch --flake .#me
 
 これだけで、すべての設定ファイルとツールが自動的にセットアップされます。
 
+---
+
+## 設定の管理
+
 ### 設定ファイルの更新
 
 設定を変更した後は、以下のコマンドで反映します：
@@ -48,6 +71,8 @@ cd ~/dotfiles
 home-manager switch --flake .#me
 ```
 
+**Codespacesの場合**: ターミナルで上記コマンドを実行するだけで即座に反映されます。
+
 ### 管理される設定ファイル
 
 - **ルートディレクトリ**: `.bashrc`, `.zshrc`, `.vimrc`
@@ -56,14 +81,52 @@ home-manager switch --flake .#me
 ### インストールされるパッケージ
 
 以下のパッケージが自動的にインストールされます：
-- Hyprland（Waylandコンポジタ）
-- Waybar（ステータスバー）
-- Wofi（アプリケーションランチャー）
-- Kitty（ターミナル）
-- Neovim / Vim（エディタ）
-- Tmux（ターミナルマルチプレクサ）
-- Git、curl、wget、tree、ripgrep、fd、fzfなどの基本ツール
+- **Hyprland**（Waylandコンポジタ）※Codespacesでは動作不可
+- **Waybar**（ステータスバー）※Codespacesでは動作不可
+- **Wofi**（アプリケーションランチャー）※Codespacesでは動作不可
+- **Kitty**（ターミナル）
+- **Neovim / Vim**（エディタ）
+- **Tmux**（ターミナルマルチプレクサ）
+- **Git、curl、wget、tree、ripgrep、fd、fzf**などの基本ツール
 - その他多数（詳細は[home.nix](home.nix)を参照）
+
+---
+
+## 💻 GitHub Codespaces について
+
+このリポジトリには `.devcontainer/` 設定が含まれており、GitHub Codespacesで簡単にテストできます。
+
+### Codespacesの特徴
+
+✅ **メリット**:
+- Nixのインストール不要（自動セットアップ）
+- ブラウザだけで動作
+- CLIツール（tmux、nvim、gitなど）の動作確認が可能
+- 設定ファイルのリンクとパッケージインストールをテスト可能
+
+❌ **制限事項**:
+- GUIツール（Hyprland、Waybar、Wofi）は動作しません
+- X11/Waylandディスプレイサーバーが必要なアプリは使用不可
+
+### Codespacesの使い方
+
+1. **起動**: リポジトリページで "Code" → "Codespaces" → "Create codespace"
+2. **待機**: 初回は5-10分ほどかかります（Nixパッケージのダウンロード）
+3. **確認**: 自動的に `home-manager switch` が実行されます
+4. **テスト**: ターミナルで `tmux`、`nvim`、`fzf` などを試してみてください
+
+### Codespacesでの再適用
+
+設定を変更した場合：
+
+```bash
+home-manager switch --flake .#me
+```
+
+### トラブルシューティング
+
+- **初回ビルドが遅い場合**: Codespacesのマシンタイプを 4-core 以上にアップグレード
+- **パッケージが見つからない**: ターミナルを再起動してみてください
 
 ---
 
