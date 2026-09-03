@@ -1,0 +1,8 @@
+[Added Associations]
+
+[Default Applications]
+inode/directory=org.kde.dolphin.desktop;
+text/plain=org.gnome.TextEditor.desktop;
+x-scheme-handler/http=google-chrome-stable.desktop
+x-scheme-handler/https=google-chrome-stable.desktop
+text/html=google-chrome-stable.desktop
