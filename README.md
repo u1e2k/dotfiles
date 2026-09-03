@@ -75,8 +75,14 @@ home-manager switch --flake .#me
 
 ### 管理される設定ファイル
 
-- **ルートディレクトリ**: `.bashrc`, `.zshrc`, `.vimrc`
-- **`.config/`ディレクトリ**: `hypr/`, `waybar/`, `kitty/`, `tmux/`, `nvim/` など全て
+- **ルートディレクトリ**: `.bashrc`, `.zshrc`, `.vimrc`, `.gitconfig`, `.wezterm.lua`, `.bin/`
+- **`.config/`ディレクトリ**: 
+  - `alacritty/`, `btop/`, `eww-which-key/`, `fcitx5/`, `fish/`
+  - `gtk-3.0/`, `gtk-4.0/`, `hypr/`, `kitty/`, `micro/`
+  - `nvim/`, `qt5ct/`, `qt6ct/`, `satty/`, `tmux/`
+  - `uwsm/`, `waybar/`, `xsettingsd/`
+- **`.config/`直下ファイル**: `cachyos-hello.json`, `dolphinrc`, `electron-flags.conf`, `kdeglobals`, `mimeapps.list`, `user-dirs.dirs`, `user-dirs.locale`
+- **`.local/share/`**: `color-schemes/`, `fonts/` (HackGen Nerd Fonts)
 
 ### インストールされるパッケージ
 
@@ -127,6 +133,59 @@ home-manager switch --flake .#me
 
 - **初回ビルドが遅い場合**: Codespacesのマシンタイプを 4-core 以上にアップグレード
 - **パッケージが見つからない**: ターミナルを再起動してみてください
+
+---
+
+## 🛠 手動セットアップ（Nixを使わない場合）
+
+Nix/Home Managerを使わない環境、または一部の設定だけ適用したい場合に使えるスクリプトを用意しています。
+
+### 1. インタラクティブセットアップ（推奨）
+
+項目を選択して個別にインストールできます。
+
+```bash
+git clone https://github.com/u1e2k/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./setup-interactive.sh
+```
+
+**操作方法:**
+| キー | アクション |
+|------|-----------|
+| `0-38` | 項目をトグル選択/解除 |
+| `a` | 全選択（存在するもののみ） |
+| `n` | 全解除 |
+| `c` | カテゴリ単位で全選択/全解除 |
+| `Enter` | 選択した項目をインストール実行 |
+| `q` | 終了 |
+
+**カテゴリ:**
+- **HOME直下**: `.vimrc`, `.bashrc`, `.zshrc`, `.gitconfig`, `.wezterm.lua`, `.bin`
+- **.config 直下ファイル**: `cachyos-hello.json`, `dolphinrc`, `electron-flags.conf`, `kdeglobals`, `mimeapps.list`, `user-dirs.dirs`, `user-dirs.locale`
+- **.config ディレクトリ**: `alacritty`, `btop`, `eww-which-key`, `fcitx5`, `fish`, `gtk-3.0`, `gtk-4.0`, `hypr`, `kitty`, `micro`, `nvim`, `qt5ct`, `qt6ct`, `satty`, `tmux`, `uwsm`, `waybar`, `xsettingsd`
+- **.local/share**: `color-schemes`, `fonts`
+
+全自動でやりたい場合:
+```bash
+./setup-interactive.sh --all
+```
+
+### 2. 従来のスクリプト（非インタラクティブ）
+
+```bash
+# 全項目インストール
+./install.sh
+
+# またはシンプル版
+./setup.sh
+
+# 現在のリンク状態を確認
+./check.sh
+```
+
+- `install.sh` / `setup.sh`: 定義済みの全項目を `ln -sfbv` でリンク（既存は `.bak` バックアップ）
+- `check.sh`: シンボリックリンクが正しく張られているか検証
 
 ---
 

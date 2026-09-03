@@ -22,6 +22,22 @@ else
   echo "Folder '$folder_path' already exists."
 fi
 
+# --- ~/.local/share ディレクトリの確認と作成 ---
+local_share_path="$HOME/.local/share"
+
+if [ ! -d "$local_share_path" ]; then
+  echo "Folder '$local_share_path' does not exist. Creating..."
+  mkdir -p "$local_share_path"
+  if [ $? -eq 0 ]; then
+    echo "Folder '$local_share_path' created successfully."
+  else
+    echo "Failed to create folder '$local_share_path'. Exiting."
+    exit 1
+  fi
+else
+  echo "Folder '$local_share_path' already exists."
+fi
+
 
 # 管理したいdotfileのリスト
 # HOME直下と.config以下のファイルを全てここに記述
@@ -29,19 +45,43 @@ declare -a dotfiles_to_link=(
     # HOME直下のファイル
     ".vimrc"
     ".bashrc"
-    ".bin"
     ".zshrc"
-    # ".gitconfig" # 例
+    ".gitconfig"
+    ".wezterm.lua"
+    ".bin"
 
-    # .configディレクトリ直下のファイルとサブディレクトリ
-    ".config/electron-flags.conf" # .config 直下のファイル
-    ".config/nvim"           # .config 直下のディレクトリ
-    ".config/hypr"
-    ".config/waybar"
-    ".config/kitty"
-    ".config/tmux"
+    # .configディレクトリ直下のファイル
+    ".config/cachyos-hello.json"
+    ".config/dolphinrc"
+    ".config/electron-flags.conf"
+    ".config/kdeglobals"
+    ".config/mimeapps.list"
+    ".config/user-dirs.dirs"
+    ".config/user-dirs.locale"
+
+    # .config 直下のディレクトリ
+    ".config/alacritty"
+    ".config/btop"
     ".config/eww-which-key"
-    # 必要に応じてさらに追加
+    ".config/fcitx5"
+    ".config/fish"
+    ".config/gtk-3.0"
+    ".config/gtk-4.0"
+    ".config/hypr"
+    ".config/kitty"
+    ".config/micro"
+    ".config/nvim"
+    ".config/qt5ct"
+    ".config/qt6ct"
+    ".config/satty"
+    ".config/tmux"
+    ".config/uwsm"
+    ".config/waybar"
+    ".config/xsettingsd"
+
+    # .local/share 以下
+    ".local/share/color-schemes"
+    ".local/share/fonts"
 )
 
 echo "--- Dotfiles Setup Started ---"

@@ -7,7 +7,9 @@ declare -a dotfiles=(
     ".bin"  # フォルダ
     ".vimrc"
     ".bashrc"
-    # ".gitconfig"
+    ".zshrc"
+    ".gitconfig"
+    ".wezterm.lua"
 )
 
 echo "--- Dotfiles Setup Started ---"
@@ -27,6 +29,7 @@ done
 
 
 echo "--- Dotfiles Setup Complete! ---"
+
 
 
 # シェルを再読み込みするなどの後処理があれば追加
@@ -51,7 +54,13 @@ fi
 
 # --- .config 直下に置きたいファイルの管理 ---
 declare -a config_files=(
+    "cachyos-hello.json"
+    "dolphinrc"
     "electron-flags.conf"
+    "kdeglobals"
+    "mimeapps.list"
+    "user-dirs.dirs"
+    "user-dirs.locale"
     # 他の.config直下のファイルもここに追加していく
     # 例: "custom-app-config.conf"
 )
@@ -75,6 +84,7 @@ done
 echo "--- Dotfiles Setup Complete (.config Directory Files) ---"
 
 
+
 ####################################################
 
 # --- .config 以下の管理 ---
@@ -82,12 +92,24 @@ echo "--- Dotfiles Setup Complete (.config Directory Files) ---"
 # 例: ~/.config/alacritty を ~/dotfiles/.config/alacritty にリンク
 
 declare -a config_dirs=(
+    "alacritty"
+    "btop"
     "eww-which-key"
+    "fcitx5"
+    "fish"
+    "gtk-3.0"
+    "gtk-4.0"
     "hypr"
-    "waybar"
     "kitty"
+    "micro"
     "nvim"
+    "qt5ct"
+    "qt6ct"
+    "satty"
     "tmux"
+    "uwsm"
+    "waybar"
+    "xsettingsd"
     # 他の.config以下のディレクトリを追加
 )
 
@@ -108,3 +130,29 @@ for dir in "${config_dirs[@]}"; do
 done
 
 echo "--- .config Directories Setup Complete! ---"
+
+####################################################
+
+# --- .local/share 以下の管理 ---
+declare -a local_share_dirs=(
+    "color-schemes"
+    "fonts"
+)
+
+echo "--- .local/share Directories Setup Started ---"
+
+for dir in "${local_share_dirs[@]}"; do
+    local_dir="$HOME/.local/share/$dir"
+    source_dir="$CURRENT_DIR/.local/share/$dir"
+
+    if [ ! -d "$source_dir" ]; then
+        echo "Source directory '$source_dir' does not exist. Skipping."
+        continue
+    fi
+
+    mkdir -p "$HOME/.local/share"
+    echo "Creating symlink for directory: '$source_dir' -> '$local_dir'"
+    ln -sfbv "$source_dir" "$local_dir"
+done
+
+echo "--- .local/share Directories Setup Complete! ---"
